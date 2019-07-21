@@ -5,10 +5,7 @@ before_install:
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 
-script: true
+script: rsync -az -vv --delete -e ssh dist/ $host_user@$host_ip:$user_file_addr
 
 addons:
   ssh_known_hosts: $host_ip
-
-after_success:
-- scp -o stricthostkeychecking=no -r dist/* $host_user@$host_ip:$user_file_addr
