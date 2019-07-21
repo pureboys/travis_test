@@ -7,4 +7,4 @@ before_install:
 - echo -e "Host $host_ip\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 
 after_success:
-- scp -o stricthostkeychecking=no -r dist/* $host_user@$host_ip:$user_file_addr
+- scp -o stricthostkeychecking=no -r dist/ $host_user@$host_ip:$user_file_addr
