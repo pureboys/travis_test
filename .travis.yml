@@ -8,7 +8,5 @@ before_install:
 addons:
   ssh_known_hosts: $host_ip
 
-script: true
-
-after_success:
-- rsync -az -vv --delete -e ssh dist/ $host_user@$host_ip:$user_file_addr
+script: 
+- rsync -az -vv --delete -e 'ssh -o StrictHostKeyChecking=no' dist/ $host_user@$host_ip:$user_file_addr
