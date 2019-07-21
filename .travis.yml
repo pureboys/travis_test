@@ -10,5 +10,5 @@ addons:
 
 script: true
 
-after_succes:
+after_success:
 - rsync -az -vv --delete -e ssh dist/ $host_user@$host_ip:$user_file_addr
